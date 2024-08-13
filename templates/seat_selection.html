@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Seat Selection</title>
+</head>
+<body>
+    <h1>Select Seats</h1>
+    <form action="{{ url_for('select_bus', bus_id=bus_id, journey_date=journey_date) }}" method="POST">
+        <div>
+            {% for seat in seats %}
+            <input type="checkbox" name="seats" value="{{ seat[0] }}" {% if not seat[1] %}disabled{% endif %}>
+            <label>{{ seat[0] }} - {% if seat[1] %}Available{% else %}Booked{% endif %}</label>
+            {% endfor %}
+        </div>
+
+        <button type="submit">Book Seats</button>
+    </form>
+</body>
+</html>

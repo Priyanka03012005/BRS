@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payment</title>
+</head>
+<body>
+    <h1>Make Payment</h1>
+    <form action="{{ url_for('payment', booking_id=booking_id) }}" method="POST">
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount" required>
+
+        <button type="submit">Pay</button>
+    </form>
+</body>
+</html>

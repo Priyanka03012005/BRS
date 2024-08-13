@@ -1,0 +1,73 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="header">
+        <h1>BRS</h1>
+    </div>
+    <div class="body">
+        <h2>Login</h2>
+        <center>
+        <form>
+            <table>
+                <tr>
+                    <td>User Name: </td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td>Password: </td>
+                    <td><input type="text"></td>
+                </tr>
+                <tr>
+                    <td><a href="forgotUsername.html">Forgot Username</a></td>
+                    <td><a class="fp" href="forgotPassword.html">Forgot Password</a></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button>Login</button></td>
+                </tr>
+            </table>
+        </form>
+        </center>
+        <tr>
+            <a href="signup.html">Don't Have Account</a>
+        </tr>
+    </div>
+    <div class="footer">
+        <p>Copyright 2024 All Rights Reserved</p>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="{{ url_for('login') }}" method="POST">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a>.</p>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+</body>
+</html>

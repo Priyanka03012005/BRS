@@ -1,0 +1,86 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Admin Panel</h1>
+
+    <h2>Bookings</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Seat</th>
+        </tr>
+        {% for booking in bookings %}
+        <tr>
+            <td>{{ booking[0] }}</td>
+            <td>{{ booking[1] }}</td>
+            <td>{{ booking[2] }}</td>
+            <td>{{ booking[3] }}</td>
+            <td>{{ booking[4] }}</td>
+            <td>{{ booking[5] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Seat Availability</h2>
+    <table>
+        <tr>
+            <th>Seat Number</th>
+            <th>Availability</th>
+        </tr>
+        {% for seat in seats %}
+        <tr>
+            <td>{{ seat[1] }}</td>
+            <td>{{ 'Available' if seat[2] else 'Booked' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel</title>
+</head>
+<body>
+    <h1>Admin Panel</h1>
+    <h2>Bookings</h2>
+    <ul>
+        {% for booking in bookings %}
+        <li>{{ booking }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Users</h2>
+    <ul>
+        {% for user in users %}
+        <li>{{ user }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Routes</h2>
+    <ul>
+        {% for route in routes %}
+        <li>{{ route }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Buses</h2>
+    <ul>
+        {% for bus in buses %}
+        <li>{{ bus }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
